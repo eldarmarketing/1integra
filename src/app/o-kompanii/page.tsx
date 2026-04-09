@@ -91,12 +91,12 @@ export default function AboutPage() {
       </section>
 
       {/* Principles */}
-      <section className="py-12 md:py-20">
+      <section className="py-16 md:py-28">
         <div className={W}>
-          <h2 data-r="reveal" className="font-heading font-bold text-2xl md:text-4xl text-gray-900 leading-tight mb-10 md:mb-12">
+          <h2 data-r="reveal" className="font-heading font-bold text-2xl md:text-4xl text-gray-900 leading-tight mb-12 md:mb-16">
             Принципы работы
           </h2>
-          <div data-r="reveal d1" className="grid md:grid-cols-2 gap-4 md:gap-5">
+          <div data-r="reveal d1" className="grid md:grid-cols-2 gap-5 md:gap-6">
             {[
               {
                 title: "Одна команда на всё",
@@ -139,11 +139,11 @@ export default function AboutPage() {
                 gradient: "from-orange-500 to-amber-600",
               },
             ].map((p) => (
-              <div key={p.title} className="rounded-2xl bg-white border border-gray-200 p-6 md:p-8 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${p.gradient} flex items-center justify-center mb-5`}>
+              <div key={p.title} className="rounded-2xl bg-white border border-gray-200 p-7 md:p-9 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${p.gradient} flex items-center justify-center mb-6`}>
                   {p.icon}
                 </div>
-                <h3 className="font-heading font-bold text-lg text-gray-900 mb-2">{p.title}</h3>
+                <h3 className="font-heading font-bold text-lg text-gray-900 mb-3">{p.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{p.desc}</p>
               </div>
             ))}
