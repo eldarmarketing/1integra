@@ -13,7 +13,7 @@
   --color-border: #e4e7ec;
 
   --font-heading: var(--font-gt-eesti), "GT Eesti Pro Display", sans-serif;
-  --font-body: var(--font-inter), "Inter", sans-serif;
+  --font-body: var(--font-gt-eesti), "GT Eesti Pro Display", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
