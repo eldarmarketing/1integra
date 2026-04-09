@@ -25,7 +25,7 @@ function useReveal() {
   return ref;
 }
 
-const W = "w-full max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12";
+const W = "w-full mx-auto px-4 sm:px-6 lg:px-12 xl:px-20 2xl:px-32";
 
 const NAV = [
   { label: "Услуги", href: "#services" },
