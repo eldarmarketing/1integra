@@ -10,13 +10,13 @@ export default function GarantiiPage() {
   return (
     <div ref={pg}>
       {/* Hero */}
-      <section className="pt-10 pb-6 md:pt-16 md:pb-10">
+      <section className="pt-12 pb-10 md:pt-20 md:pb-14">
         <div className={W}>
           <div className="max-w-3xl">
             <h1 data-r="reveal" className="font-heading font-bold text-3xl md:text-5xl text-gray-900 leading-tight tracking-tight">
               Гарантии
             </h1>
-            <p data-r="reveal d1" className="text-base md:text-lg text-gray-500 mt-4 leading-relaxed">
+            <p data-r="reveal d1" className="text-base md:text-lg text-gray-500 mt-6 leading-relaxed">
               Три пункта в договоре с печатью. До начала работ. Не обещания — юридические обязательства.
             </p>
           </div>
@@ -24,9 +24,9 @@ export default function GarantiiPage() {
       </section>
 
       {/* Three guarantees */}
-      <section className="py-10 md:py-16">
+      <section className="py-14 md:py-24">
         <div className={W}>
-          <div data-r="reveal" className="grid md:grid-cols-3 gap-4 md:gap-5">
+          <div data-r="reveal" className="grid md:grid-cols-3 gap-5 md:gap-6">
             {[
               {
                 n: "01",
@@ -47,8 +47,8 @@ export default function GarantiiPage() {
                 gradient: "from-emerald-500 to-teal-600",
               },
             ].map((c) => (
-              <div key={c.n} className="rounded-2xl bg-white border border-gray-200 p-6 md:p-8 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${c.gradient} flex items-center justify-center text-white font-heading font-bold text-sm mb-5`}>
+              <div key={c.n} className="rounded-2xl bg-white border border-gray-200 p-7 md:p-9 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
+                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${c.gradient} flex items-center justify-center text-white font-heading font-bold text-sm mb-6`}>
                   {c.n}
                 </div>
                 <h3 className="font-heading font-bold text-xl text-gray-900 mb-3">{c.t}</h3>
@@ -60,14 +60,14 @@ export default function GarantiiPage() {
       </section>
 
       {/* Payment model */}
-      <section className="py-12 md:py-20">
+      <section className="py-16 md:py-28">
         <div className={W}>
-          <h2 data-r="reveal" className="font-heading font-bold text-2xl md:text-4xl text-gray-900 leading-tight mb-10 md:mb-12">
+          <h2 data-r="reveal" className="font-heading font-bold text-2xl md:text-4xl text-gray-900 leading-tight mb-12 md:mb-16">
             Деньги после результата
           </h2>
-          <div data-r="reveal d1" className="grid md:grid-cols-2 gap-4 md:gap-5">
-            <div className="rounded-2xl bg-white border border-gray-200 p-8 md:p-10 hover:shadow-lg transition-all duration-300">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-xs font-medium text-gray-500 mb-6">Обычно</div>
+          <div data-r="reveal d1" className="grid md:grid-cols-2 gap-5 md:gap-6">
+            <div className="rounded-2xl bg-white border border-gray-200 p-9 md:p-12 hover:shadow-lg transition-all duration-300">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-xs font-medium text-gray-500 mb-8">Обычно</div>
               <p className="text-base md:text-lg text-gray-500 leading-relaxed mb-10">
                 Интегратор берёт 50–70% вперёд. Вы платите за обещания. Если что-то пойдёт не так — деньги уже у них.
               </p>

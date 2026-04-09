@@ -3,20 +3,20 @@ import { W } from "./constants";
 
 export function CtaSection() {
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-16 md:py-28">
       <div className={W}>
-        <div className="relative overflow-hidden rounded-3xl bg-navy p-8 md:p-12 lg:p-16 text-center">
+        <div className="relative overflow-hidden rounded-3xl bg-navy p-10 md:p-14 lg:p-20 text-center">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-transparent to-emerald-600/20" />
           <div className="absolute -left-20 -top-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
           <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl" />
           <div className="relative">
-            <h2 className="font-heading font-bold text-2xl md:text-4xl text-white leading-tight mb-4">
+            <h2 className="font-heading font-bold text-2xl md:text-4xl text-white leading-tight mb-6">
               Обсудите ваш проект
             </h2>
-            <p className="text-base md:text-lg text-white/60 mb-8 mx-auto max-w-lg">
+            <p className="text-base md:text-lg text-white/60 mb-10 mx-auto max-w-lg leading-relaxed">
               Расскажите, что нужно внедрить. Мы оценим сроки и стоимость за 2 дня.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="mailto:info@1integra.ru"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white text-gray-900 font-semibold text-base
@@ -32,7 +32,7 @@ export function CtaSection() {
                 Написать нам
               </Link>
             </div>
-            <p className="text-xs text-white/35 mt-5">Ответим в течение часа в рабочее время</p>
+            <p className="text-xs text-white/35 mt-6">Ответим в течение часа в рабочее время</p>
           </div>
         </div>
       </div>

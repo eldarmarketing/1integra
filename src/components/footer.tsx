@@ -3,7 +3,7 @@ import { W, NAV } from "./constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-white py-8 md:py-10">
+    <footer className="border-t border-gray-200 bg-white py-10 md:py-14">
       <div className={`${W} flex flex-col md:flex-row md:items-center md:justify-between gap-6`}>
         <div className="flex items-center gap-4">
           <Link href="/" className="font-heading font-bold text-lg text-navy">

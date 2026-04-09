@@ -29,9 +29,9 @@ export default function ServicePage() {
   return (
     <div ref={pg}>
       {/* Breadcrumb + Hero */}
-      <section className="pt-8 pb-6 md:pt-12 md:pb-10">
+      <section className="pt-12 pb-10 md:pt-20 md:pb-14">
         <div className={W}>
-          <nav data-r="reveal" className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+          <nav data-r="reveal" className="flex items-center gap-2 text-sm text-gray-400 mb-8">
             <Link href="/" className="hover:text-gray-600 transition-colors">Главная</Link>
             <span>/</span>
             <Link href="/uslugi" className="hover:text-gray-600 transition-colors">Услуги</Link>
@@ -39,9 +39,9 @@ export default function ServicePage() {
             <span className="text-gray-600">{service.title}</span>
           </nav>
 
-          <div data-r="reveal d1" className="grid lg:grid-cols-5 gap-6 lg:gap-10 items-start">
+          <div data-r="reveal d1" className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-3">
-              <div className={`inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} items-center justify-center mb-6`}>
+              <div className={`inline-flex w-14 h-14 rounded-2xl bg-gradient-to-br ${service.gradient} items-center justify-center mb-8`}>
                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                 </svg>

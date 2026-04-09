@@ -10,13 +10,13 @@ export default function AboutPage() {
   return (
     <div ref={pg}>
       {/* Hero */}
-      <section className="pt-10 pb-6 md:pt-16 md:pb-10">
+      <section className="pt-12 pb-10 md:pt-20 md:pb-14">
         <div className={W}>
           <div className="max-w-3xl">
             <h1 data-r="reveal" className="font-heading font-bold text-3xl md:text-5xl text-gray-900 leading-tight tracking-tight">
               О компании
             </h1>
-            <p data-r="reveal d1" className="text-base md:text-lg text-gray-500 mt-4 leading-relaxed">
+            <p data-r="reveal d1" className="text-base md:text-lg text-gray-500 mt-6 leading-relaxed">
               Мы — студия внедрения 1С. Одна команда, которая закрывает все 32 направления платформы.
               Без субподрядчиков, без растянутых сроков, без «скорректируем бюджет».
             </p>
@@ -25,22 +25,22 @@ export default function AboutPage() {
       </section>
 
       {/* Approach */}
-      <section className="py-10 md:py-16">
+      <section className="py-16 md:py-28">
         <div className={W}>
-          <h2 data-r="reveal" className="font-heading font-bold text-2xl md:text-4xl text-gray-900 leading-tight mb-3">
+          <h2 data-r="reveal" className="font-heading font-bold text-2xl md:text-4xl text-gray-900 leading-tight mb-5">
             Работаем параллельно
           </h2>
-          <p data-r="reveal d1" className="text-base md:text-lg text-gray-500 mb-10 md:mb-12 max-w-2xl">
+          <p data-r="reveal d1" className="text-base md:text-lg text-gray-500 mb-12 md:mb-16 max-w-2xl">
             Обычный интегратор ведёт модули последовательно. У нас несколько групп одновременно.
           </p>
 
-          <div data-r="reveal d2" className="grid md:grid-cols-3 gap-4 md:gap-5">
+          <div data-r="reveal d2" className="grid md:grid-cols-3 gap-5 md:gap-6">
             {[
               { proj: "ERP, 200 пользователей", usual: "12–14 мес.", ours: "4–5 мес.", accent: "text-blue-600" },
               { proj: "Бухгалтерия + зарплата + склад", usual: "6–8 мес.", ours: "2–3 мес.", accent: "text-violet-600" },
               { proj: "Переезд с SAP", usual: "18–24 мес.", ours: "6–8 мес.", accent: "text-emerald-600" },
             ].map((r) => (
-              <div key={r.proj} className="rounded-2xl bg-white border border-gray-200 p-6 md:p-8 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
+              <div key={r.proj} className="rounded-2xl bg-white border border-gray-200 p-7 md:p-9 hover:shadow-lg hover:border-gray-300 transition-all duration-300">
                 <h3 className="font-heading font-semibold text-base md:text-lg text-gray-900 mb-8">{r.proj}</h3>
                 <div className="flex items-center justify-between mb-3 pb-3 border-b border-gray-100">
                   <span className="text-sm text-gray-400">Обычно</span>
@@ -57,24 +57,24 @@ export default function AboutPage() {
       </section>
 
       {/* For Whom */}
-      <section className="py-12 md:py-20">
+      <section className="py-16 md:py-28">
         <div className={W}>
-          <div data-r="reveal" className="relative overflow-hidden rounded-3xl bg-navy p-8 md:p-12 lg:p-16">
+          <div data-r="reveal" className="relative overflow-hidden rounded-3xl bg-navy p-10 md:p-14 lg:p-20">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-indigo-900/30" />
             <div className="absolute -right-32 -bottom-32 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl" />
             <div className="relative">
-              <h2 className="font-heading font-bold text-2xl md:text-4xl text-white leading-tight mb-8">
+              <h2 className="font-heading font-bold text-2xl md:text-4xl text-white leading-tight mb-10">
                 Тем, кому надоело
               </h2>
-              <div className="grid md:grid-cols-2 gap-6 md:gap-10 mb-10">
-                <div className="rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-6">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-10 mb-12">
+                <div className="rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-7">
                   <p className="text-base md:text-lg text-white/65 leading-relaxed">
                     Вы производите мебель, возите грузы по стране или управляете
                     сетью из 200 магазинов. У вас сложные процессы, много юрлиц
                     и бухгалтерия, от которой зависит всё.
                   </p>
                 </div>
-                <div className="rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-6">
+                <div className="rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-7">
                   <p className="text-base md:text-lg text-white/65 leading-relaxed">
                     Вам уже внедряли 1С. Возможно, не один раз. Проект на три месяца
                     растянулся на год. Интегратор звонил с просьбой «скорректировать
