@@ -12,10 +12,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const service = SERVICES.find((s) => s.slug === slug);
-  if (!service) return { title: "Услуга не найдена — 1ИНТЕГРА" };
+  if (!service) return { title: "Услуга не найдена" };
   return {
-    title: `${service.title} — 1ИНТЕГРА`,
+    title: `${service.title} — внедрение 1С под ключ`,
     description: service.fullDesc,
+    alternates: {
+      canonical: `/uslugi/${slug}`,
+    },
+    openGraph: {
+      title: `${service.title} — 1ИНТЕГРА`,
+      description: service.shortDesc,
+    },
   };
 }
 

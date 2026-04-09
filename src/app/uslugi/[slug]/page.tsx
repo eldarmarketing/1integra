@@ -5,6 +5,7 @@ import { useReveal } from "@/components/reveal";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
 import { SERVICES, getServiceBySlug } from "@/data/services";
+import { JsonLd } from "@/components/json-ld";
 
 export default function ServicePage() {
   const { slug } = useParams<{ slug: string }>();
@@ -26,8 +27,34 @@ export default function ServicePage() {
 
   const otherServices = SERVICES.filter((s) => s.slug !== slug).slice(0, 3);
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.fullDesc,
+    provider: {
+      "@type": "Organization",
+      name: "1ИНТЕГРА",
+      url: "https://1integra.ru",
+    },
+    areaServed: { "@type": "Country", name: "Россия" },
+    url: `https://1integra.ru/uslugi/${slug}`,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Главная", item: "https://1integra.ru" },
+      { "@type": "ListItem", position: 2, name: "Услуги", item: "https://1integra.ru/uslugi" },
+      { "@type": "ListItem", position: 3, name: service.title, item: `https://1integra.ru/uslugi/${slug}` },
+    ],
+  };
+
   return (
     <div ref={pg}>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
       {/* Breadcrumb + Hero */}
       <section className="pt-12 pb-10 md:pt-20 md:pb-14">
         <div className={W}>
