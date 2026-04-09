@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "063a0e6448123cd359ad0044cc46b0e490cc7964d45ef4bb9fd842bd2ffbca67"
+    },
+    "tailwind-ui-rules": {
+      "source": "MarkBenz/claude-code-skills",
+      "sourceType": "github",
+      "computedHash": "b79944e46039dad775dff588ed901527aaa159e427fde9d139bf5c918cbcc770"
+    }
+  }
+}
