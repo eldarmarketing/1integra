@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useReveal } from "@/components/reveal";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
+import { SERVICES } from "@/data/services";
 
 export default function Home() {
   const pg = useReveal();
@@ -107,24 +108,17 @@ export default function Home() {
           </div>
 
           <div data-r="reveal d2" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-            {[
-              { title: "Бухгалтерия и налоги", desc: "Бухгалтерский и налоговый учёт, отчётность, ЭДО, интеграция с банками", gradient: "from-blue-500 to-indigo-600", light: "bg-blue-50 border-blue-100 hover:border-blue-200 hover:shadow-blue-100/50" },
-              { title: "Зарплата и кадры", desc: "Расчёт зарплаты, кадровый учёт, графики, табели, отпуска", gradient: "from-violet-500 to-purple-600", light: "bg-violet-50 border-violet-100 hover:border-violet-200 hover:shadow-violet-100/50" },
-              { title: "Управление торговлей", desc: "Закупки, продажи, ценообразование, логистика, CRM", gradient: "from-cyan-500 to-blue-600", light: "bg-cyan-50 border-cyan-100 hover:border-cyan-200 hover:shadow-cyan-100/50" },
-              { title: "Производство", desc: "Планирование, MES, рецептуры, калькуляция себестоимости", gradient: "from-orange-500 to-amber-600", light: "bg-orange-50 border-orange-100 hover:border-orange-200 hover:shadow-orange-100/50" },
-              { title: "Склад и логистика", desc: "WMS, адресное хранение, инвентаризация, штрихкодирование", gradient: "from-emerald-500 to-teal-600", light: "bg-emerald-50 border-emerald-100 hover:border-emerald-200 hover:shadow-emerald-100/50" },
-              { title: "ERP и интеграции", desc: "Полное внедрение 1С:ERP, переезд с SAP/Oracle, интеграции с внешними системами", gradient: "from-rose-500 to-pink-600", light: "bg-rose-50 border-rose-100 hover:border-rose-200 hover:shadow-rose-100/50" },
-            ].map((s) => (
-              <div key={s.title}
-                className={`rounded-2xl border ${s.light} p-6 md:p-8 hover:shadow-lg transition-all duration-300`}>
+            {SERVICES.slice(0, 6).map((s) => (
+              <Link key={s.slug} href={`/uslugi/${s.slug}`}
+                className={`group rounded-2xl border ${s.light} p-6 md:p-8 hover:shadow-lg transition-all duration-300 block`}>
                 <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center mb-5`}>
                   <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                   </svg>
                 </div>
                 <h3 className="font-heading font-bold text-lg text-gray-900 mb-2">{s.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
-              </div>
+                <p className="text-sm text-gray-500 leading-relaxed">{s.shortDesc}</p>
+              </Link>
             ))}
           </div>
         </div>
