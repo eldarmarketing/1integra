@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 const gtEesti = localFont({
@@ -55,7 +57,11 @@ export default function RootLayout({
       lang="ru"
       className={`${gtEesti.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-white text-[#333]">{children}</body>
+      <body className="min-h-full bg-gray-50 text-gray-900">
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
