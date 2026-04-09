@@ -58,7 +58,7 @@ export default function Home() {
     <div ref={pg} className="min-h-screen bg-white">
       {/* ════════════════════ HEADER ════════════════════ */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-navy-deep/5">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 h-14 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 h-14 flex items-center justify-between">
           <a
             href="#"
             className="font-heading font-bold text-lg text-navy-deep tracking-tight
@@ -80,6 +80,15 @@ export default function Home() {
             ))}
           </nav>
 
+          <a
+            href="#contacts"
+            className="hidden md:inline-flex items-center px-5 py-2 text-sm font-semibold bg-navy-deep text-white
+                       hover:bg-navy transition-colors duration-150
+                       focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+          >
+            Обсудить проект
+          </a>
+
           {/* Mobile menu button */}
           <button
             onClick={() => setNavOpen(!navOpen)}
@@ -100,7 +109,7 @@ export default function Home() {
         {/* Mobile nav */}
         {navOpen && (
           <div className="md:hidden border-t border-navy-deep/5 bg-white">
-            <nav className="mx-auto max-w-6xl px-6 py-4 flex flex-col gap-3">
+            <nav className="mx-auto max-w-7xl px-6 py-4 flex flex-col gap-3">
               {NAV.map((l) => (
                 <a
                   key={l.label}
@@ -119,7 +128,7 @@ export default function Home() {
       <main>
         {/* ════════════════════ HERO ════════════════════ */}
         <section className="pt-32 pb-16 lg:pt-44 lg:pb-28">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
             <p
               data-r="reveal"
               className="text-xs font-semibold tracking-widest uppercase text-accent mb-8"
@@ -128,15 +137,13 @@ export default function Home() {
             </p>
             <h1
               data-r="reveal d1"
-              className="font-heading font-bold text-4xl sm:text-5xl lg:text-7xl text-navy-deep leading-none tracking-tight"
+              className="font-heading font-bold text-4xl sm:text-5xl lg:text-7xl text-navy-deep leading-none tracking-tight mx-auto max-w-4xl"
             >
-              Внедряем&nbsp;1С
-              <br />
-              целиком
+              Внедряем&nbsp;1С целиком
             </h1>
             <p
               data-r="reveal d2"
-              className="text-lg lg:text-xl text-text-secondary mt-6 max-w-xl leading-relaxed"
+              className="text-lg lg:text-xl text-text-secondary mt-6 mx-auto max-w-2xl leading-relaxed"
             >
               32&nbsp;направления и&nbsp;263&nbsp;модуля.
               Одна&nbsp;команда вместо&nbsp;десяти подрядчиков.
@@ -157,7 +164,7 @@ export default function Home() {
             <div
               data-r="reveal d4"
               className="mt-20 pt-8 border-t border-navy-deep/10
-                         grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-8"
+                         grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-8 text-left"
             >
               {[
                 ["32", "направления"],
@@ -165,7 +172,7 @@ export default function Home() {
                 ["×3", "быстрее"],
                 ["0 ₽", "предоплата"],
               ].map(([n, l]) => (
-                <div key={l as string}>
+                <div key={l as string} className="text-center sm:text-left">
                   <div className="font-heading font-bold text-3xl lg:text-4xl text-navy-deep leading-none">
                     {n}
                   </div>
@@ -180,7 +187,7 @@ export default function Home() {
 
         {/* ════════════════════ О КОМПАНИИ ════════════════════ */}
         <section id="about" className="py-20 lg:py-32">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
               {/* Left: text */}
               <div className="lg:col-span-3">
@@ -236,42 +243,44 @@ export default function Home() {
 
         {/* ════════════════════ ДЛЯ КОГО ════════════════════ */}
         <section className="bg-navy-deep py-20 lg:py-28">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
-            <div className="max-w-2xl">
-              <h2
-                data-r="reveal"
-                className="font-heading font-bold text-3xl lg:text-4xl text-white leading-tight tracking-tight"
-              >
-                Тем, кому надоело
-              </h2>
-              <div
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <h2
+              data-r="reveal"
+              className="font-heading font-bold text-3xl lg:text-4xl text-white leading-tight tracking-tight"
+            >
+              Тем, кому надоело
+            </h2>
+            <div className="mt-8 grid lg:grid-cols-2 gap-8 lg:gap-16">
+              <p
                 data-r="reveal d1"
-                className="mt-8 space-y-5 text-base leading-relaxed"
+                className="text-base leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.55)" }}
               >
-                <p>
-                  Вы производите мебель, возите грузы по стране или управляете
-                  сетью из 200&nbsp;магазинов. У вас сложные процессы, много юрлиц
-                  и бухгалтерия, от которой зависит всё.
-                </p>
-                <p>
-                  Вам уже внедряли 1С. Возможно, не один раз. Проект на три
-                  месяца растянулся на год. Интегратор звонил с просьбой
-                  «скорректировать бюджет», хотя половина работы ещё не сделана.
-                </p>
-              </div>
-              <div data-r="reveal d2" className="mt-10 border-l-2 border-accent pl-6">
-                <p className="font-heading font-bold text-xl text-white leading-snug">
-                  Мы для тех, кому это надоело.
-                </p>
-              </div>
+                Вы производите мебель, возите грузы по стране или управляете
+                сетью из 200&nbsp;магазинов. У вас сложные процессы, много юрлиц
+                и бухгалтерия, от которой зависит всё.
+              </p>
+              <p
+                data-r="reveal d2"
+                className="text-base leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.55)" }}
+              >
+                Вам уже внедряли 1С. Возможно, не один раз. Проект на три
+                месяца растянулся на год. Интегратор звонил с просьбой
+                «скорректировать бюджет», хотя половина работы ещё не сделана.
+              </p>
+            </div>
+            <div data-r="reveal d3" className="mt-10 border-l-2 border-accent pl-6">
+              <p className="font-heading font-bold text-xl text-white leading-snug">
+                Мы для тех, кому это надоело.
+              </p>
             </div>
           </div>
         </section>
 
         {/* ════════════════════ ПОДХОД ════════════════════ */}
         <section id="approach" className="py-20 lg:py-32">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2
               data-r="reveal"
               className="font-heading font-bold text-3xl lg:text-5xl text-navy-deep leading-tight tracking-tight"
@@ -280,7 +289,7 @@ export default function Home() {
             </h2>
             <p
               data-r="reveal d1"
-              className="text-base text-text-secondary leading-relaxed mt-5 max-w-2xl"
+              className="text-base text-text-secondary leading-relaxed mt-5 max-w-3xl"
             >
               Обычно 3–5 человек идут по модулям последовательно. ERP
               на 200&nbsp;пользователей — год-полтора. У нас несколько групп
@@ -324,7 +333,7 @@ export default function Home() {
 
             <p
               data-r="reveal d3"
-              className="text-sm text-text-muted mt-8 max-w-lg"
+              className="text-sm text-text-muted mt-8 max-w-2xl"
             >
               Месяц без новой системы стоит бизнесу денег. Если мы экономим
               8&nbsp;месяцев, сэкономленное часто перекрывает стоимость самого
@@ -335,7 +344,7 @@ export default function Home() {
 
         {/* ════════════════════ ГАРАНТИИ ════════════════════ */}
         <section id="guarantees" className="py-20 lg:py-28 bg-surface">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2
               data-r="reveal"
               className="font-heading font-bold text-3xl lg:text-5xl text-navy-deep leading-tight tracking-tight"
@@ -344,7 +353,7 @@ export default function Home() {
             </h2>
             <p
               data-r="reveal d1"
-              className="text-base text-text-secondary leading-relaxed mt-4 max-w-lg"
+              className="text-base text-text-secondary leading-relaxed mt-4 max-w-2xl"
             >
               Три&nbsp;пункта в договоре с&nbsp;печатью. Подписывается
               до&nbsp;начала работ.
@@ -396,7 +405,7 @@ export default function Home() {
 
         {/* ════════════════════ ПЕРЕЕЗД ════════════════════ */}
         <section className="py-20 lg:py-32">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2
               data-r="reveal"
               className="font-heading font-bold text-3xl lg:text-5xl text-navy-deep leading-tight tracking-tight"
@@ -405,7 +414,7 @@ export default function Home() {
             </h2>
             <p
               data-r="reveal d1"
-              className="text-base text-text-secondary leading-relaxed mt-5 max-w-2xl"
+              className="text-base text-text-secondary leading-relaxed mt-5 max-w-3xl"
             >
               Миграция обычно нервная: бизнес замирает, данные переносят ночами,
               часть записей теряется. У нас новая 1С запускается рядом со старой.
@@ -413,7 +422,7 @@ export default function Home() {
             </p>
 
             {/* Steps as a numbered list, NOT cards */}
-            <div data-r="reveal d2" className="mt-12 grid sm:grid-cols-2 gap-x-16 gap-y-8">
+            <div data-r="reveal d2" className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-8">
               {[
                 ["Запуск рядом", "Новая 1С параллельно со старой системой"],
                 ["Пилот 10%", "Небольшая группа пользователей переходит первой"],
@@ -449,7 +458,7 @@ export default function Home() {
 
         {/* ════════════════════ ПОСТОПЛАТА ════════════════════ */}
         <section className="py-20 lg:py-28">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2
               data-r="reveal"
               className="font-heading font-bold text-3xl lg:text-5xl text-navy-deep leading-tight tracking-tight"
@@ -505,7 +514,7 @@ export default function Home() {
 
         {/* ════════════════════ CTA ════════════════════ */}
         <section id="contacts" className="bg-navy-deep py-20 lg:py-28">
-          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
               {/* Left: message */}
               <div>
@@ -517,7 +526,7 @@ export default function Home() {
                 </h2>
                 <p
                   data-r="reveal d1"
-                  className="mt-5 text-base leading-relaxed max-w-md"
+                  className="mt-5 text-base leading-relaxed max-w-lg"
                   style={{ color: "rgba(255,255,255,0.5)" }}
                 >
                   Расскажите, что нужно внедрить. Мы оценим сроки
@@ -580,7 +589,7 @@ export default function Home() {
 
       {/* ════════════════════ FOOTER ════════════════════ */}
       <footer className="bg-navy-deep border-t border-white/5 py-6">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="font-heading font-bold text-sm text-white/60">
               1ИНТЕГРА
