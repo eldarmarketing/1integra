@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { MobileCta } from "@/components/mobile-cta";
 import { JsonLd } from "@/components/json-ld";
 import "./globals.css";
 
@@ -28,18 +28,12 @@ const gtEesti = localFont({
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
-  themeColor: "#00387e",
+  themeColor: "#1b5fa8",
 };
 
 export const metadata: Metadata = {
@@ -76,21 +70,12 @@ export const metadata: Metadata = {
     title: "1ИНТЕГРА — Внедряем 1С целиком",
     description:
       "32 направления, 263 модуля, одна команда вместо десяти подрядчиков. Фиксированная цена и постоплата.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "1ИНТЕГРА — Внедрение и интеграция 1С",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "1ИНТЕГРА — Внедряем 1С целиком",
     description:
       "32 направления, 263 модуля, одна команда. Фиксированная цена и постоплата.",
-    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "/",
@@ -106,13 +91,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    yandex: "YANDEX_VERIFICATION_CODE",
-    google: "GOOGLE_VERIFICATION_CODE",
-  },
-  other: {
-    "yandex-verification": "YANDEX_VERIFICATION_CODE",
-  },
 };
 
 const organizationSchema = {
@@ -127,8 +105,10 @@ const organizationSchema = {
     "@type": "Country",
     name: "Россия",
   },
+  telephone: "+7 965 178-44-34",
   contactPoint: {
     "@type": "ContactPoint",
+    telephone: "+7 965 178-44-34",
     email: "info@1integra.ru",
     contactType: "sales",
     availableLanguage: "Russian",
@@ -166,14 +146,15 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${gtEesti.variable} ${inter.variable} h-full antialiased`}
+      className={`${gtEesti.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-gray-50 text-gray-900">
+      <body className="min-h-full bg-surface text-on-surface">
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
         <Header />
         <main>{children}</main>
         <Footer />
+        <MobileCta />
       </body>
     </html>
   );

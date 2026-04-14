@@ -1,19 +1,71 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-navy: #00387e;
-  --color-navy-deep: #0a1628;
-  --color-navy-mid: #001f47;
-  --color-navy-light: #0a4a9e;
-  --color-accent: #c8a44e;
-  --color-text: #1a1a1a;
-  --color-text-secondary: #555;
-  --color-text-muted: #888;
-  --color-surface: #f7f8fa;
-  --color-border: #e4e7ec;
+/* ═══ MD3 Design Token System ═══ */
+/* Seed: Navy #00387e → Tonal palette */
 
-  --font-heading: var(--font-gt-eesti), "GT Eesti Pro Display", sans-serif;
-  --font-body: var(--font-gt-eesti), "GT Eesti Pro Display", sans-serif;
+@theme inline {
+  /* ── Primary ── */
+  --color-primary: #1b5fa8;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #d4e3ff;
+  --color-on-primary-container: #001c3e;
+
+  /* ── Secondary ── */
+  --color-secondary: #545f70;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d8e3f8;
+  --color-on-secondary-container: #111c2b;
+
+  /* ── Tertiary ── */
+  --color-tertiary: #6d5677;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #f6d8ff;
+  --color-on-tertiary-container: #271430;
+
+  /* ── Error ── */
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+
+  /* ── Surface system ── */
+  --color-surface: #f9f9ff;
+  --color-surface-dim: #d9d9e0;
+  --color-surface-bright: #f9f9ff;
+  --color-on-surface: #191c20;
+  --color-on-surface-variant: #43474e;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f3f3fa;
+  --color-surface-container: #edeef5;
+  --color-surface-container-high: #e8e8ef;
+  --color-surface-container-highest: #e2e2e9;
+
+  /* ── Outline ── */
+  --color-outline: #73777f;
+  --color-outline-variant: #c3c6cf;
+
+  /* ── Inverse ── */
+  --color-inverse-surface: #2e3036;
+  --color-inverse-on-surface: #f0f0f7;
+  --color-inverse-primary: #a5c8ff;
+
+  /* ── Extended: success/positive ── */
+  --color-success: #2e6c2f;
+  --color-on-success: #ffffff;
+  --color-success-container: #b0f4a8;
+  --color-on-success-container: #002204;
+
+  /* ── MD3 Shape Tokens ── */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* ── Typography ── */
+  --font-heading: var(--font-gt-eesti), "GT Eesti Pro Display", system-ui, sans-serif;
+  --font-body: var(--font-gt-eesti), "GT Eesti Pro Display", system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,23 +74,73 @@
 
 * { box-sizing: border-box; margin: 0; }
 
-html { scroll-behavior: smooth; color-scheme: light; }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
   font-family: var(--font-body);
-  color: var(--color-text);
-  background: #fefefe;
+  color: var(--color-on-surface);
+  background: var(--color-surface);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
 }
 
 .font-heading { font-family: var(--font-heading); }
 
-/* ===== Reveal ===== */
+/* ═══ MD3 Typography Scale (Cyrillic-optimized line-heights) ═══ */
+.md3-display-large  { font-size: 57px; line-height: 68px; font-weight: 400; letter-spacing: -0.25px; }
+.md3-display-medium { font-size: 45px; line-height: 56px; font-weight: 400; letter-spacing: 0; }
+.md3-headline-large { font-size: 32px; line-height: 44px; font-weight: 700; letter-spacing: 0; }
+.md3-headline-medium { font-size: 28px; line-height: 40px; font-weight: 700; letter-spacing: 0; }
+.md3-title-large    { font-size: 22px; line-height: 32px; font-weight: 700; letter-spacing: 0; }
+.md3-title-medium   { font-size: 16px; line-height: 26px; font-weight: 600; letter-spacing: 0.15px; }
+.md3-title-small    { font-size: 14px; line-height: 22px; font-weight: 600; letter-spacing: 0.1px; }
+.md3-body-large     { font-size: 16px; line-height: 26px; font-weight: 400; letter-spacing: 0.5px; }
+.md3-body-medium    { font-size: 14px; line-height: 22px; font-weight: 400; letter-spacing: 0.25px; }
+.md3-body-small     { font-size: 12px; line-height: 18px; font-weight: 400; letter-spacing: 0.4px; }
+.md3-label-large    { font-size: 14px; line-height: 22px; font-weight: 600; letter-spacing: 0.1px; }
+.md3-label-medium   { font-size: 12px; line-height: 18px; font-weight: 600; letter-spacing: 0.5px; }
+.md3-label-small    { font-size: 11px; line-height: 18px; font-weight: 600; letter-spacing: 0.5px; }
+
+/* ═══ MD3 Elevation Tonal Overlays ═══ */
+/* Elevation through tonal color, not shadows */
+.md3-elevation-0 { background: var(--color-surface); }
+.md3-elevation-1 { background: var(--color-surface-container-low); }
+.md3-elevation-2 { background: var(--color-surface-container); }
+.md3-elevation-3 { background: var(--color-surface-container-high); }
+
+/* ═══ MD3 Motion ═══ */
+/* Emphasized: begin and end on screen */
+.md3-motion-emphasized {
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  transition-duration: 500ms;
+}
+/* Emphasized decelerate: enter screen */
+.md3-motion-decelerate {
+  transition-timing-function: cubic-bezier(0.05, 0.7, 0.1, 1);
+  transition-duration: 400ms;
+}
+/* Emphasized accelerate: exit screen */
+.md3-motion-accelerate {
+  transition-timing-function: cubic-bezier(0.3, 0, 0.8, 0.15);
+  transition-duration: 200ms;
+}
+/* Standard */
+.md3-motion-standard {
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  transition-duration: 300ms;
+}
+
+/* ═══ Reveal Animations ═══ */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
@@ -46,17 +148,49 @@ body {
   to   { opacity: 1; }
 }
 
-.reveal      { opacity: 0; animation: fadeUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-.reveal-fade { opacity: 0; animation: fadeIn 0.6s ease forwards; }
-.d1 { animation-delay: .06s; }
-.d2 { animation-delay: .12s; }
-.d3 { animation-delay: .18s; }
-.d4 { animation-delay: .24s; }
-.d5 { animation-delay: .30s; }
+.reveal      { opacity: 0; animation: fadeUp 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) forwards; }
+.reveal-fade { opacity: 0; animation: fadeIn 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) forwards; }
+.d1 { animation-delay: .08s; }
+.d2 { animation-delay: .16s; }
+.d3 { animation-delay: .24s; }
+.d4 { animation-delay: .32s; }
+.d5 { animation-delay: .40s; }
 
-a, button { transition: all 0.2s ease; }
+/* ═══ Global Transitions ═══ */
+a, button {
+  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  transition-duration: 300ms;
+}
 
 table { border-collapse: collapse; }
 
-/* Tabular numbers for data alignment */
 .font-variant-numeric { font-variant-numeric: tabular-nums; }
+
+/* Safe area for mobile bottom bar */
+.safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* Better tap targets on mobile (MD3: 48dp minimum) */
+@media (pointer: coarse) {
+  a, button { min-height: 48px; }
+}
+
+/* Horizontal scroll containers */
+.scroll-x-mobile {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.scroll-x-mobile::-webkit-scrollbar { display: none; }
+
+/* ═══ MD3 Focus Ring ═══ */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ═══ Selection ═══ */
+::selection {
+  background: var(--color-primary-container);
+  color: var(--color-on-primary-container);
+}

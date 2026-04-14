@@ -4,5 +4,6 @@ export const NAV = [
   { label: "Услуги", href: "/uslugi" },
   { label: "О компании", href: "/o-kompanii" },
   { label: "Гарантии", href: "/garantii" },
+  { label: "Стоимость", href: "/stoimost" },
   { label: "Контакты", href: "/kontakty" },
 ];
