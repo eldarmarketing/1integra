@@ -1,10 +1,9 @@
-import { RevealProvider } from "@/components/reveal-provider";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
 
 export default function AboutPage() {
   return (
-    <RevealProvider>
+    <>
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className={W}>
@@ -251,6 +250,6 @@ export default function AboutPage() {
       </section>
 
       <CtaSection />
-    </RevealProvider>
+    </>
   );
 }

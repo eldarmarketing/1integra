@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { RevealProvider } from "@/components/reveal-provider";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
 import { FaqAccordion } from "@/components/faq-accordion";
@@ -8,7 +7,7 @@ import { GENERAL_FAQ } from "@/data/faq";
 
 export default function GarantiiPage() {
   return (
-    <RevealProvider>
+    <>
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className={W}>
@@ -135,6 +134,6 @@ export default function GarantiiPage() {
       <FaqJsonLd items={GENERAL_FAQ} />
 
       <CtaSection />
-    </RevealProvider>
+    </>
   );
 }

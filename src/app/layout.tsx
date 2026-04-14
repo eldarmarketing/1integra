@@ -9,23 +9,24 @@ import "./globals.css";
 const gtEesti = localFont({
   src: [
     {
-      path: "../../public/fonts/gteestiprodisplay_regular.otf",
+      path: "../../public/fonts/gteestiprodisplay_regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../public/fonts/gteestiprodisplay_medium.otf",
+      path: "../../public/fonts/gteestiprodisplay_medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/fonts/gteestiprodisplay_bold.otf",
+      path: "../../public/fonts/gteestiprodisplay_bold.woff2",
       weight: "700",
       style: "normal",
     },
   ],
   variable: "--font-gt-eesti",
   display: "swap",
+  preload: true,
 });
 
 export const viewport: Viewport = {

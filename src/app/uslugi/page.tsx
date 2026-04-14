@@ -1,12 +1,11 @@
 import Link from "next/link";
-import { RevealProvider } from "@/components/reveal-provider";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
 import { SERVICES } from "@/data/services";
 
 export default function UslugiPage() {
   return (
-    <RevealProvider>
+    <>
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className={W}>
@@ -93,6 +92,6 @@ export default function UslugiPage() {
       </section>
 
       <CtaSection />
-    </RevealProvider>
+    </>
   );
 }

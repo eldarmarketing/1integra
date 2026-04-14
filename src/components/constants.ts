@@ -1,4 +1,4 @@
-export const W = "w-full max-w-[1040px] mx-auto px-4 sm:px-6";
+export const W = "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8";
 
 export const NAV = [
   { label: "Услуги", href: "/uslugi" },

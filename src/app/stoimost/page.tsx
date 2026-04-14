@@ -1,4 +1,3 @@
-import { RevealProvider } from "@/components/reveal-provider";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
 
@@ -105,7 +104,7 @@ const examples = [
 
 export default function StoimostPage() {
   return (
-    <RevealProvider>
+    <>
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className={W}>
@@ -336,6 +335,6 @@ export default function StoimostPage() {
       </section>
 
       <CtaSection />
-    </RevealProvider>
+    </>
   );
 }

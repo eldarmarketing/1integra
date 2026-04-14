@@ -1,10 +1,9 @@
-import { RevealProvider } from "@/components/reveal-provider";
 import { ContactForm } from "@/components/contact-form";
 import { W } from "@/components/constants";
 
 export default function KontaktyPage() {
   return (
-    <RevealProvider>
+    <>
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className={W}>
@@ -111,6 +110,6 @@ export default function KontaktyPage() {
           </div>
         </div>
       </section>
-    </RevealProvider>
+    </>
   );
 }

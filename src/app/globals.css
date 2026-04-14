@@ -55,7 +55,7 @@
   --color-success-container: #b0f4a8;
   --color-on-success-container: #002204;
 
-  /* ── MD3 Shape Tokens ── */
+  /* ── Shape Tokens ── */
   --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -68,141 +68,175 @@
   --font-body: var(--font-gt-eesti), "GT Eesti Pro Display", system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root { color-scheme: light; }
+/* ═══ Base layer — can be overridden by Tailwind utilities ═══ */
+@layer base {
+  @media (prefers-color-scheme: dark) {
+    :root { color-scheme: light; }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-on-surface);
+    background: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  img, video, svg { display: block; max-width: 100%; }
+  table { border-collapse: collapse; }
+
+  a, button {
+    transition-property: color, background-color, border-color, opacity, transform;
+    transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+    transition-duration: 300ms;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background: var(--color-primary-container);
+    color: var(--color-on-primary-container);
+  }
 }
 
-/* ═══ Reset ═══ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ═══ Components layer — MD3 typography + utilities ═══ */
+@layer components {
+  .md3-display-large {
+    font-size: 57px;
+    line-height: 64px;
+    font-weight: 700;
+    letter-spacing: -0.25px;
+    font-family: var(--font-heading);
+  }
+  .md3-display-medium {
+    font-size: 45px;
+    line-height: 52px;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-family: var(--font-heading);
+  }
+  .md3-display-small {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-family: var(--font-heading);
+  }
+  .md3-headline-large {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-family: var(--font-heading);
+  }
+  .md3-headline-medium {
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-family: var(--font-heading);
+  }
+  .md3-headline-small {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    letter-spacing: 0;
+    font-family: var(--font-heading);
+  }
+  .md3-title-large {
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-family: var(--font-heading);
+  }
+  .md3-title-medium {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    font-family: var(--font-heading);
+  }
+  .md3-title-small {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+  }
+  .md3-body-large {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  .md3-body-medium {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: 0.25px;
+  }
+  .md3-body-small {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+  }
+  .md3-label-large {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    letter-spacing: 0.1px;
+  }
+  .md3-label-medium {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
 
-html {
-  scroll-behavior: smooth;
-  color-scheme: light;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
+  /* CSS-only reveal animations — no JS needed */
+  [data-r] {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s cubic-bezier(0.05, 0.7, 0.1, 1) forwards;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+  [data-r~="d1"] { animation-delay: 0.08s; }
+  [data-r~="d2"] { animation-delay: 0.16s; }
+  [data-r~="d3"] { animation-delay: 0.24s; }
+  [data-r~="d4"] { animation-delay: 0.32s; }
 
-body {
-  font-family: var(--font-body);
-  color: var(--color-on-surface);
-  background: var(--color-surface);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  line-height: 1.5;
-}
+  /* Fallback for browsers without animation-timeline */
+  @supports not (animation-timeline: view()) {
+    [data-r] {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
 
-img, video, svg { display: block; max-width: 100%; }
-table { border-collapse: collapse; }
-
-/* ═══ MD3 Typography Scale ═══ */
-/* GT Eesti Pro Display — bold headings per brand guidelines */
-
-.md3-display-large {
-  font-size: 57px;
-  line-height: 64px;
-  font-weight: 700;
-  letter-spacing: -0.25px;
-  font-family: var(--font-heading);
-}
-.md3-display-medium {
-  font-size: 45px;
-  line-height: 52px;
-  font-weight: 700;
-  letter-spacing: 0;
-  font-family: var(--font-heading);
-}
-.md3-headline-large {
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 700;
-  letter-spacing: 0;
-  font-family: var(--font-heading);
-}
-.md3-headline-medium {
-  font-size: 28px;
-  line-height: 36px;
-  font-weight: 700;
-  letter-spacing: 0;
-  font-family: var(--font-heading);
-}
-.md3-headline-small {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 700;
-  letter-spacing: 0;
-  font-family: var(--font-heading);
-}
-.md3-title-large {
-  font-size: 22px;
-  line-height: 28px;
-  font-weight: 600;
-  letter-spacing: 0;
-  font-family: var(--font-heading);
-}
-.md3-title-medium {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
-  letter-spacing: 0.15px;
-  font-family: var(--font-heading);
-}
-.md3-title-small {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
-  letter-spacing: 0.1px;
-}
-.md3-body-large {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-}
-.md3-body-medium {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 400;
-  letter-spacing: 0.25px;
-}
-.md3-body-small {
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 400;
-  letter-spacing: 0.4px;
-}
-.md3-label-large {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
-  letter-spacing: 0.1px;
-}
-.md3-label-medium {
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* ═══ MD3 Motion Utilities ═══ */
-.md3-motion-emphasized {
-  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
-  transition-duration: 500ms;
-}
-.md3-motion-decelerate {
-  transition-timing-function: cubic-bezier(0.05, 0.7, 0.1, 1);
-  transition-duration: 400ms;
-}
-.md3-motion-accelerate {
-  transition-timing-function: cubic-bezier(0.3, 0, 0.8, 0.15);
-  transition-duration: 200ms;
-}
-.md3-motion-standard {
-  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
-  transition-duration: 300ms;
+  /* Utilities */
+  .safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .scroll-x-hidden { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .scroll-x-hidden::-webkit-scrollbar { display: none; }
+  .tabular-nums { font-variant-numeric: tabular-nums; }
 }
 
-/* ═══ Reveal Animations ═══ */
+/* Keyframes (outside layers — they don't participate in cascade) */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -211,41 +245,3 @@ table { border-collapse: collapse; }
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
-.reveal      { opacity: 0; animation: fadeUp 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) forwards; }
-.reveal-fade { opacity: 0; animation: fadeIn 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) forwards; }
-.d1 { animation-delay: 0.08s; }
-.d2 { animation-delay: 0.16s; }
-.d3 { animation-delay: 0.24s; }
-.d4 { animation-delay: 0.32s; }
-.d5 { animation-delay: 0.40s; }
-
-/* ═══ Global Transitions ═══ */
-a, button {
-  transition-property: color, background-color, border-color, opacity, transform;
-  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
-  transition-duration: 300ms;
-}
-
-/* ═══ MD3 Focus Ring ═══ */
-:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-/* ═══ Selection ═══ */
-::selection {
-  background: var(--color-primary-container);
-  color: var(--color-on-primary-container);
-}
-
-/* Safe area for mobile */
-.safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0px); }
-
-/* Scrollbar hide */
-.scroll-x-hidden { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-.scroll-x-hidden::-webkit-scrollbar { display: none; }
-
-/* Tabular numbers */
-.tabular-nums { font-variant-numeric: tabular-nums; }
