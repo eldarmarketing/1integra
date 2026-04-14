@@ -107,18 +107,18 @@ export default function StoimostPage() {
   return (
     <RevealProvider>
       {/* Hero */}
-      <section className="pt-8 pb-8 md:pt-16 md:pb-14">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <div className="max-w-2xl">
             <h1
               data-r="reveal"
-              className="font-heading font-bold md3-headline-large text-on-surface leading-[1.15] tracking-tight"
+              className="md3-headline-large text-on-surface"
             >
               Стоимость внедрения 1С
             </h1>
             <p
               data-r="reveal d1"
-              className="md3-body-large text-on-surface-variant mt-4 md:mt-5 leading-[1.6]"
+              className="md3-body-large text-on-surface-variant mt-4"
             >
               Фиксированная цена до&nbsp;старта. Называем сумму&nbsp;—
               и&nbsp;не&nbsp;меняем.
@@ -128,18 +128,18 @@ export default function StoimostPage() {
       </section>
 
       {/* Pricing tiers */}
-      <section className="pt-4 pb-12 md:pt-6 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
-          <div data-r="reveal" className="grid md:grid-cols-3 gap-4 md:gap-5">
+          <div data-r="reveal" className="grid md:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
             {tiers.map((tier) =>
               tier.highlighted ? (
                 <div
                   key={tier.title}
-                  className="relative bg-inverse-surface rounded-[var(--radius-lg)] p-7 md:p-10 ring-2 ring-primary/30"
+                  className="relative bg-inverse-surface rounded-xl p-4 md:p-6 ring-2 ring-primary/30"
                 >
-                  <div className="w-10 h-10 rounded-[var(--radius-md)] bg-primary-container flex items-center justify-center mb-5 md:mb-7">
+                  <div className="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center mb-4">
                     <svg
-                      className="w-4.5 h-4.5 text-on-primary-container"
+                      className="w-5 h-5 text-on-primary-container"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -153,14 +153,14 @@ export default function StoimostPage() {
                     </svg>
                   </div>
                   {tier.badge && (
-                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 border border-white/10 md3-label-small text-inverse-on-surface/70 mb-4">
+                    <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 border border-white/10 md3-label-medium text-inverse-on-surface/70 mb-4">
                       {tier.badge}
                     </div>
                   )}
-                  <h3 className="font-heading font-bold md3-title-large text-inverse-on-surface mb-2.5">
+                  <h3 className="md3-title-large text-inverse-on-surface mb-2">
                     {tier.title}
                   </h3>
-                  <p className="font-heading font-bold text-[22px] md:text-[28px] text-inverse-on-surface mb-6 md:mb-8">
+                  <p className="md3-headline-medium text-inverse-on-surface mb-6 md:mb-8">
                     {tier.price}
                   </p>
                   <ul className="space-y-3">
@@ -179,7 +179,7 @@ export default function StoimostPage() {
                             d="m4.5 12.75 6 6 9-13.5"
                           />
                         </svg>
-                        <span className="md3-body-medium text-inverse-on-surface/70 leading-[1.6]">
+                        <span className="md3-body-medium text-inverse-on-surface/70">
                           {f}
                         </span>
                       </li>
@@ -189,11 +189,11 @@ export default function StoimostPage() {
               ) : (
                 <div
                   key={tier.title}
-                  className="bg-surface-container-lowest border border-outline-variant/50 rounded-[var(--radius-lg)] p-7 md:p-10 hover:bg-surface-container-low transition-all ease-[cubic-bezier(0.2,0,0,1)] duration-300"
+                  className="rounded-xl border border-outline-variant bg-surface-container-lowest p-4 md:p-6 hover:bg-surface-container-low transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
                 >
-                  <div className="w-10 h-10 rounded-[var(--radius-md)] bg-primary-container flex items-center justify-center mb-5 md:mb-7">
+                  <div className="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center mb-4">
                     <svg
-                      className="w-4.5 h-4.5 text-on-primary-container"
+                      className="w-5 h-5 text-on-primary-container"
                       fill="none"
                       viewBox="0 0 24 24"
                       strokeWidth={2}
@@ -206,10 +206,10 @@ export default function StoimostPage() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-heading font-bold md3-title-large text-on-surface mb-2.5">
+                  <h3 className="md3-title-large text-on-surface mb-2">
                     {tier.title}
                   </h3>
-                  <p className="font-heading font-bold text-[22px] md:text-[28px] text-on-surface mb-6 md:mb-8">
+                  <p className="md3-headline-medium text-on-surface mb-6 md:mb-8">
                     {tier.price}
                   </p>
                   <ul className="space-y-3">
@@ -228,7 +228,7 @@ export default function StoimostPage() {
                             d="m4.5 12.75 6 6 9-13.5"
                           />
                         </svg>
-                        <span className="md3-body-medium text-on-surface-variant leading-[1.6]">
+                        <span className="md3-body-medium text-on-surface-variant">
                           {f}
                         </span>
                       </li>
@@ -242,30 +242,30 @@ export default function StoimostPage() {
       </section>
 
       {/* What's included */}
-      <section className="pt-12 pb-12 md:pt-24 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <h2
             data-r="reveal"
-            className="font-heading font-bold md3-headline-medium text-on-surface leading-[1.2] mb-10 md:mb-14"
+            className="md3-headline-large text-on-surface"
           >
             Что входит в&nbsp;стоимость
           </h2>
           <div
             data-r="reveal d1"
-            className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5"
+            className="grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-6 mt-8 md:mt-12"
           >
             {included.map((c) => (
               <div
                 key={c.n}
-                className="bg-surface-container-lowest border border-outline-variant/50 rounded-[var(--radius-lg)] p-7 md:p-10 hover:bg-surface-container-low transition-all ease-[cubic-bezier(0.2,0,0,1)] duration-300"
+                className="rounded-xl border border-outline-variant bg-surface-container-lowest p-4 md:p-6 hover:bg-surface-container-low transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
               >
-                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-primary-container flex items-center justify-center text-on-primary-container font-heading font-bold text-[12px] mb-5 md:mb-7">
+                <div className="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary-container md3-label-medium mb-4">
                   {c.n}
                 </div>
-                <h3 className="font-heading font-bold md3-title-medium text-on-surface mb-2.5">
+                <h3 className="md3-title-medium text-on-surface mb-1">
                   {c.t}
                 </h3>
-                <p className="md3-body-medium text-on-surface-variant leading-[1.6]">
+                <p className="md3-body-medium text-on-surface-variant">
                   {c.d}
                 </p>
               </div>
@@ -275,32 +275,32 @@ export default function StoimostPage() {
       </section>
 
       {/* Project examples */}
-      <section className="pt-12 pb-12 md:pt-24 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <h2
             data-r="reveal"
-            className="font-heading font-bold md3-headline-medium text-on-surface leading-[1.2] mb-10 md:mb-14"
+            className="md3-headline-large text-on-surface"
           >
             Примеры проектов
           </h2>
           <div
             data-r="reveal d1"
-            className="grid md:grid-cols-2 gap-4 md:gap-5"
+            className="grid md:grid-cols-2 gap-2 md:gap-4 lg:gap-6 mt-8 md:mt-12"
           >
             {examples.map((ex) => (
               <div
                 key={ex.name}
-                className="bg-surface-container-lowest border border-outline-variant/50 rounded-[var(--radius-lg)] p-7 md:p-10 hover:bg-surface-container-low transition-all ease-[cubic-bezier(0.2,0,0,1)] duration-300 flex items-start justify-between gap-5"
+                className="rounded-xl border border-outline-variant bg-surface-container-lowest p-4 md:p-6 hover:bg-surface-container-low transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] flex items-start justify-between gap-6"
               >
                 <div>
-                  <p className="font-heading font-semibold md3-title-medium text-on-surface mb-1.5">
+                  <p className="md3-title-medium text-on-surface mb-1.5">
                     {ex.name}
                   </p>
                   <p className="md3-body-medium text-on-surface-variant">
                     Срок: {ex.duration}
                   </p>
                 </div>
-                <p className="font-heading font-bold md3-title-medium text-on-surface whitespace-nowrap">
+                <p className="md3-title-medium text-on-surface whitespace-nowrap">
                   {ex.price}
                 </p>
               </div>
@@ -310,11 +310,11 @@ export default function StoimostPage() {
           {/* Note block */}
           <div
             data-r="reveal d2"
-            className="mt-6 md:mt-8 rounded-[var(--radius-md)] bg-primary-container p-6 md:p-8 flex items-start gap-4"
+            className="mt-6 md:mt-8 rounded-xl bg-primary-container p-4 md:p-6 flex items-start gap-4"
           >
-            <div className="w-9 h-9 rounded-[var(--radius-sm)] bg-primary-container flex items-center justify-center shrink-0 mt-0.5">
+            <div className="w-9 h-9 rounded-lg bg-primary-container flex items-center justify-center shrink-0 mt-0.5">
               <svg
-                className="w-4.5 h-4.5 text-on-primary-container"
+                className="w-5 h-5 text-on-primary-container"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth={2}
@@ -327,7 +327,7 @@ export default function StoimostPage() {
                 />
               </svg>
             </div>
-            <p className="md3-body-medium text-on-primary-container leading-[1.6]">
+            <p className="md3-body-medium text-on-primary-container">
               Точную стоимость назовём после бесплатного аудита. Цена
               фиксируется в&nbsp;договоре&nbsp;— вы не заплатите больше.
             </p>

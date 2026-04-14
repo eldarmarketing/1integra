@@ -72,7 +72,8 @@
   :root { color-scheme: light; }
 }
 
-* { box-sizing: border-box; margin: 0; }
+/* ═══ Reset ═══ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   scroll-behavior: smooth;
@@ -88,51 +89,114 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
+  line-height: 1.5;
 }
 
-.font-heading { font-family: var(--font-heading); }
+img, video, svg { display: block; max-width: 100%; }
+table { border-collapse: collapse; }
 
-/* ═══ MD3 Typography Scale (Cyrillic-optimized line-heights) ═══ */
-.md3-display-large  { font-size: 57px; line-height: 68px; font-weight: 400; letter-spacing: -0.25px; }
-.md3-display-medium { font-size: 45px; line-height: 56px; font-weight: 400; letter-spacing: 0; }
-.md3-headline-large { font-size: 32px; line-height: 44px; font-weight: 700; letter-spacing: 0; }
-.md3-headline-medium { font-size: 28px; line-height: 40px; font-weight: 700; letter-spacing: 0; }
-.md3-title-large    { font-size: 22px; line-height: 32px; font-weight: 700; letter-spacing: 0; }
-.md3-title-medium   { font-size: 16px; line-height: 26px; font-weight: 600; letter-spacing: 0.15px; }
-.md3-title-small    { font-size: 14px; line-height: 22px; font-weight: 600; letter-spacing: 0.1px; }
-.md3-body-large     { font-size: 16px; line-height: 26px; font-weight: 400; letter-spacing: 0.5px; }
-.md3-body-medium    { font-size: 14px; line-height: 22px; font-weight: 400; letter-spacing: 0.25px; }
-.md3-body-small     { font-size: 12px; line-height: 18px; font-weight: 400; letter-spacing: 0.4px; }
-.md3-label-large    { font-size: 14px; line-height: 22px; font-weight: 600; letter-spacing: 0.1px; }
-.md3-label-medium   { font-size: 12px; line-height: 18px; font-weight: 600; letter-spacing: 0.5px; }
-.md3-label-small    { font-size: 11px; line-height: 18px; font-weight: 600; letter-spacing: 0.5px; }
+/* ═══ MD3 Typography Scale ═══ */
+/* GT Eesti Pro Display — bold headings per brand guidelines */
 
-/* ═══ MD3 Elevation Tonal Overlays ═══ */
-/* Elevation through tonal color, not shadows */
-.md3-elevation-0 { background: var(--color-surface); }
-.md3-elevation-1 { background: var(--color-surface-container-low); }
-.md3-elevation-2 { background: var(--color-surface-container); }
-.md3-elevation-3 { background: var(--color-surface-container-high); }
+.md3-display-large {
+  font-size: 57px;
+  line-height: 64px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  font-family: var(--font-heading);
+}
+.md3-display-medium {
+  font-size: 45px;
+  line-height: 52px;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-family: var(--font-heading);
+}
+.md3-headline-large {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-family: var(--font-heading);
+}
+.md3-headline-medium {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-family: var(--font-heading);
+}
+.md3-headline-small {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+  font-family: var(--font-heading);
+}
+.md3-title-large {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 600;
+  letter-spacing: 0;
+  font-family: var(--font-heading);
+}
+.md3-title-medium {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  letter-spacing: 0.15px;
+  font-family: var(--font-heading);
+}
+.md3-title-small {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+.md3-body-large {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+.md3-body-medium {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0.25px;
+}
+.md3-body-small {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+.md3-label-large {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+.md3-label-medium {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-/* ═══ MD3 Motion ═══ */
-/* Emphasized: begin and end on screen */
+/* ═══ MD3 Motion Utilities ═══ */
 .md3-motion-emphasized {
   transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   transition-duration: 500ms;
 }
-/* Emphasized decelerate: enter screen */
 .md3-motion-decelerate {
   transition-timing-function: cubic-bezier(0.05, 0.7, 0.1, 1);
   transition-duration: 400ms;
 }
-/* Emphasized accelerate: exit screen */
 .md3-motion-accelerate {
   transition-timing-function: cubic-bezier(0.3, 0, 0.8, 0.15);
   transition-duration: 200ms;
 }
-/* Standard */
 .md3-motion-standard {
   transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   transition-duration: 300ms;
@@ -150,37 +214,18 @@ body {
 
 .reveal      { opacity: 0; animation: fadeUp 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) forwards; }
 .reveal-fade { opacity: 0; animation: fadeIn 0.5s cubic-bezier(0.05, 0.7, 0.1, 1) forwards; }
-.d1 { animation-delay: .08s; }
-.d2 { animation-delay: .16s; }
-.d3 { animation-delay: .24s; }
-.d4 { animation-delay: .32s; }
-.d5 { animation-delay: .40s; }
+.d1 { animation-delay: 0.08s; }
+.d2 { animation-delay: 0.16s; }
+.d3 { animation-delay: 0.24s; }
+.d4 { animation-delay: 0.32s; }
+.d5 { animation-delay: 0.40s; }
 
 /* ═══ Global Transitions ═══ */
 a, button {
-  transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+  transition-property: color, background-color, border-color, opacity, transform;
   transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
   transition-duration: 300ms;
 }
-
-table { border-collapse: collapse; }
-
-.font-variant-numeric { font-variant-numeric: tabular-nums; }
-
-/* Safe area for mobile bottom bar */
-.safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0px); }
-
-/* Better tap targets on mobile (MD3: 48dp minimum) */
-@media (pointer: coarse) {
-  a, button { min-height: 48px; }
-}
-
-/* Horizontal scroll containers */
-.scroll-x-mobile {
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.scroll-x-mobile::-webkit-scrollbar { display: none; }
 
 /* ═══ MD3 Focus Ring ═══ */
 :focus-visible {
@@ -194,3 +239,13 @@ table { border-collapse: collapse; }
   background: var(--color-primary-container);
   color: var(--color-on-primary-container);
 }
+
+/* Safe area for mobile */
+.safe-area-pb { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+/* Scrollbar hide */
+.scroll-x-hidden { -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.scroll-x-hidden::-webkit-scrollbar { display: none; }
+
+/* Tabular numbers */
+.tabular-nums { font-variant-numeric: tabular-nums; }

@@ -17,12 +17,12 @@ export default function ServicePage() {
     return (
       <div className="py-24 md:py-32 text-center">
         <div className={W}>
-          <h1 className="font-heading font-bold md3-headline-large text-on-surface mb-5">
+          <h1 className="md3-headline-large text-on-surface mb-6">
             Услуга не&nbsp;найдена
           </h1>
           <Link
             href="/uslugi"
-            className="text-primary hover:opacity-80 transition-opacity duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
+            className="md3-label-large text-primary hover:opacity-80 transition-opacity duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
           >
             ← Все направления
           </Link>
@@ -64,11 +64,11 @@ export default function ServicePage() {
       <JsonLd data={breadcrumbSchema} />
 
       {/* Breadcrumb + Hero */}
-      <section className="pt-8 pb-8 md:pt-16 md:pb-14">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <nav
             data-r="reveal"
-            className="flex items-center gap-1.5 md3-body-small text-on-surface-variant mb-5 md:mb-8"
+            className="flex items-center gap-1.5 md3-body-medium text-on-surface-variant mb-6 md:mb-8"
           >
             <Link
               href="/"
@@ -87,21 +87,21 @@ export default function ServicePage() {
             <span className="text-on-surface truncate">{service.title}</span>
           </nav>
 
-          <div data-r="reveal d1" className="grid lg:grid-cols-5 gap-5 lg:gap-10 items-start">
+          <div data-r="reveal d1" className="grid lg:grid-cols-5 gap-6 lg:gap-10 items-start">
             <div className="lg:col-span-3">
-              <h1 className="font-heading font-bold md3-headline-large text-on-surface leading-[1.15] tracking-tight mb-5 md:mb-6">
+              <h1 className="md3-headline-large text-on-surface mb-4">
                 {service.title}
               </h1>
-              <p className="md3-body-large text-on-surface-variant leading-[1.6] max-w-2xl">
+              <p className="md3-body-large text-on-surface-variant">
                 {service.fullDesc}
               </p>
             </div>
 
-            <div className="lg:col-span-2 rounded-[var(--radius-lg)] bg-surface-container border border-outline-variant/50 p-7 md:p-9">
-              <div className="font-heading font-semibold md3-label-medium text-on-surface-variant uppercase tracking-wider mb-5 md:mb-6">
+            <div className="lg:col-span-2 rounded-xl bg-surface-container border border-outline-variant p-4 md:p-6">
+              <div className="md3-label-medium text-on-surface-variant uppercase tracking-wider mb-6">
                 Продукты
               </div>
-              <div className="space-y-3.5">
+              <div className="space-y-4">
                 {service.products.map((p) => (
                   <div key={p} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -109,11 +109,11 @@ export default function ServicePage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-7 pt-7 border-t border-outline-variant/50 hidden md:block">
+              <div className="mt-7 pt-7 border-t border-outline-variant hidden md:block">
                 <Link
                   href="/kontakty"
-                  className="block text-center px-7 py-3.5 rounded-full bg-primary text-on-primary md3-label-large
-                    hover:opacity-90 active:opacity-80 transition-opacity duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
+                  className="flex items-center justify-center h-10 px-6 rounded-full bg-primary text-on-primary md3-label-large
+                    hover:bg-primary/90 transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
                 >
                   Обсудить внедрение
                 </Link>
@@ -124,27 +124,27 @@ export default function ServicePage() {
       </section>
 
       {/* Features */}
-      <section className="pt-12 pb-12 md:pt-24 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <h2
             data-r="reveal"
-            className="font-heading font-bold md3-headline-medium text-on-surface leading-[1.2] mb-10 md:mb-14"
+            className="md3-headline-large text-on-surface"
           >
             Что входит
           </h2>
-          <div data-r="reveal d1" className="grid md:grid-cols-2 gap-4 md:gap-5">
+          <div data-r="reveal d1" className="grid md:grid-cols-2 gap-2 md:gap-4 lg:gap-6 mt-8 md:mt-12">
             {service.features.map((f, i) => (
               <div
                 key={f.title}
-                className="rounded-[var(--radius-lg)] bg-surface-container-lowest border border-outline-variant/50 p-7 md:p-10 hover:bg-surface-container-low transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
+                className="rounded-xl border border-outline-variant bg-surface-container-lowest p-4 md:p-6 hover:bg-surface-container-low transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
               >
-                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-primary-container text-on-primary-container flex items-center justify-center font-heading font-bold md3-label-medium mb-5 md:mb-7">
+                <div className="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center md3-label-medium mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <h3 className="font-heading font-bold md3-title-medium text-on-surface mb-2.5">
+                <h3 className="md3-title-medium text-on-surface mb-1">
                   {f.title}
                 </h3>
-                <p className="md3-body-medium text-on-surface-variant leading-[1.6]">{f.desc}</p>
+                <p className="md3-body-medium text-on-surface-variant">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -152,16 +152,16 @@ export default function ServicePage() {
       </section>
 
       {/* Modules */}
-      <section className="pt-4 pb-12 md:pt-8 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <div
             data-r="reveal"
-            className="rounded-[var(--radius-lg)] bg-surface-container border border-outline-variant/50 p-7 md:p-10"
+            className="rounded-xl bg-surface-container border border-outline-variant p-4 md:p-6"
           >
-            <h2 className="font-heading font-bold md3-headline-medium text-on-surface leading-[1.2] mb-6 md:mb-8">
+            <h2 className="md3-headline-large text-on-surface mb-4">
               Модули и компоненты
             </h2>
-            <div className="flex flex-wrap gap-2.5 md:gap-3">
+            <div className="flex flex-wrap gap-2 md:gap-3 mt-8 md:mt-12">
               {service.modules.map((m) => (
                 <span
                   key={m}
@@ -184,24 +184,24 @@ export default function ServicePage() {
       </section>
 
       {/* Cases */}
-      <section className="pt-12 pb-12 md:pt-24 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <h2
             data-r="reveal"
-            className="font-heading font-bold md3-headline-medium text-on-surface leading-[1.2] mb-10 md:mb-14"
+            className="md3-headline-large text-on-surface"
           >
             Примеры внедрений
           </h2>
-          <div data-r="reveal d1" className="grid md:grid-cols-3 gap-4 md:gap-5">
+          <div data-r="reveal d1" className="grid md:grid-cols-3 gap-2 md:gap-4 lg:gap-6 mt-8 md:mt-12">
             {service.cases.map((c, i) => (
               <div
                 key={i}
-                className="rounded-[var(--radius-lg)] bg-surface-container-lowest border border-outline-variant/50 p-7 md:p-10 hover:bg-surface-container-low transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
+                className="rounded-xl border border-outline-variant bg-surface-container-lowest p-4 md:p-6 hover:bg-surface-container-low transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]"
               >
-                <div className="w-10 h-10 rounded-[var(--radius-md)] bg-primary-container text-on-primary-container flex items-center justify-center font-heading font-bold md3-label-medium mb-5 md:mb-7">
+                <div className="w-10 h-10 rounded-xl bg-primary-container text-on-primary-container flex items-center justify-center md3-label-medium mb-4">
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <p className="md3-body-medium text-on-surface leading-[1.6]">{c}</p>
+                <p className="md3-body-medium text-on-surface">{c}</p>
               </div>
             ))}
           </div>
@@ -209,17 +209,17 @@ export default function ServicePage() {
       </section>
 
       {/* FAQ */}
-      <section className="pt-12 pb-12 md:pt-24 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
           <h2
             data-r="reveal"
-            className="font-heading font-bold md3-headline-medium text-on-surface leading-[1.2] mb-10 md:mb-14"
+            className="md3-headline-large text-on-surface"
           >
             Частые вопросы
           </h2>
           <div
             data-r="reveal d1"
-            className="rounded-[var(--radius-lg)] bg-surface-container border border-outline-variant/50 p-7 md:p-10"
+            className="rounded-xl bg-surface-container border border-outline-variant p-4 md:p-6 mt-8 md:mt-12"
           >
             <FaqAccordion items={faqItems} />
           </div>
@@ -228,12 +228,12 @@ export default function ServicePage() {
       <FaqJsonLd items={faqItems} />
 
       {/* Other services */}
-      <section className="pt-12 pb-12 md:pt-24 md:pb-24">
+      <section className="py-16 md:py-24">
         <div className={W}>
-          <div className="flex items-end justify-between gap-5 mb-10 md:mb-14">
+          <div className="flex items-end justify-between gap-6 mb-8 md:mb-12">
             <h2
               data-r="reveal"
-              className="font-heading font-bold md3-headline-medium text-on-surface leading-[1.2]"
+              className="md3-headline-large text-on-surface"
             >
               Другие направления
             </h2>
@@ -245,17 +245,17 @@ export default function ServicePage() {
               Все направления →
             </Link>
           </div>
-          <div data-r="reveal d1" className="grid md:grid-cols-3 gap-4 md:gap-5">
+          <div data-r="reveal d1" className="grid md:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
             {otherServices.map((s) => (
               <Link
                 key={s.slug}
                 href={`/uslugi/${s.slug}`}
-                className="rounded-[var(--radius-lg)] border border-outline-variant/50 bg-surface-container-lowest p-7 md:p-9 hover:bg-surface-container-low active:scale-[0.98] transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] block"
+                className="rounded-xl border border-outline-variant bg-surface-container-lowest p-4 md:p-6 hover:bg-surface-container-low active:scale-[0.98] transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)] block"
               >
-                <h3 className="font-heading font-bold md3-title-medium text-on-surface mb-2.5">
+                <h3 className="md3-title-medium text-on-surface mb-2">
                   {s.title}
                 </h3>
-                <p className="md3-body-medium text-on-surface-variant leading-[1.6]">{s.shortDesc}</p>
+                <p className="md3-body-medium text-on-surface-variant">{s.shortDesc}</p>
               </Link>
             ))}
           </div>
