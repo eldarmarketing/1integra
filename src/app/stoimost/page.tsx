@@ -2,9 +2,8 @@ import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
 
 export const metadata = {
-  title: "Стоимость внедрения 1С — цены и тарифы",
-  description:
-    "Стоимость внедрения 1С: от 300 000 ₽ для малого бизнеса до полного ERP. Фиксированная цена, постоплата, гарантия сроков.",
+  title: "Стоимость внедрения 1С — калькулятор цен",
+  description: "Фиксированная стоимость внедрения 1С. От 150 000 ₽ за модуль. Калькулятор цен, прозрачная смета, постоплата по результату.",
   alternates: { canonical: "/stoimost" },
 };
 

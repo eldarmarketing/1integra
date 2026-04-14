@@ -5,6 +5,12 @@ import { FaqAccordion } from "@/components/faq-accordion";
 import { FaqJsonLd } from "@/components/json-ld";
 import { GENERAL_FAQ } from "@/data/faq";
 
+export const metadata = {
+  title: "Гарантии внедрения 1С — фиксированная цена и сроки",
+  description: "Три гарантии в договоре: результат по ТЗ, фиксированный бюджет, сроки с неустойкой. Постоплата — платите только за работающую систему.",
+  alternates: { canonical: "/garantii" },
+};
+
 export default function GarantiiPage() {
   return (
     <>

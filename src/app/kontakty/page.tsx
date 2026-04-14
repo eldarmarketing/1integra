@@ -1,6 +1,12 @@
 import { ContactForm } from "@/components/contact-form";
 import { W } from "@/components/constants";
 
+export const metadata = {
+  title: "Контакты 1ИНТЕГРА — заявка на внедрение 1С",
+  description: "Оставьте заявку на внедрение 1С. Ответим в течение часа. Телефон: +7 965 178-44-34. Email: info@1integra.ru. Санкт-Петербург.",
+  alternates: { canonical: "/kontakty" },
+};
+
 export default function KontaktyPage() {
   return (
     <>

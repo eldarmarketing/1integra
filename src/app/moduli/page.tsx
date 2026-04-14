@@ -8,6 +8,7 @@ export const metadata = {
   title: "263 модуля 1С — полный каталог",
   description:
     "Каталог всех 263 модулей 1С, с которыми работает 1ИНТЕГРА. От бухгалтерии до ERP — находите нужный модуль и оставляйте заявку.",
+  alternates: { canonical: "/moduli" },
 };
 
 export default function ModuliPage() {

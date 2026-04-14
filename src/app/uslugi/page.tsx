@@ -4,6 +4,12 @@ import { W } from "@/components/constants";
 import { DIRECTIONS } from "@/data/directions";
 import { MODULES, getModulesByDirection } from "@/data/modules";
 
+export const metadata = {
+  title: "Услуги внедрения 1С — 32 направления под ключ",
+  description: "32 направления внедрения 1С: ERP, бухгалтерия, зарплата, склад, производство, торговля, документооборот. 263 модуля, одна команда.",
+  alternates: { canonical: "/uslugi" },
+};
+
 export default function UslugiPage() {
   return (
     <>

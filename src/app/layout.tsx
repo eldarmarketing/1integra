@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { MobileCta } from "@/components/mobile-cta";
 import { JsonLd } from "@/components/json-ld";
+import { YandexMetrika } from "@/components/yandex-metrika";
 import "./globals.css";
 
 const gtEesti = localFont({
@@ -79,7 +80,10 @@ export const metadata: Metadata = {
       "32 направления, 263 модуля, одна команда. Фиксированная цена и постоплата.",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://1integra.ru",
+  },
+  verification: {
+    yandex: "da8d379fa37d196f",
   },
   robots: {
     index: true,
@@ -96,11 +100,10 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "ProfessionalService",
   name: "1ИНТЕГРА",
   url: "https://1integra.ru",
-  description:
-    "Студия внедрения 1С. 32 направления, 263 модуля, одна команда под ключ.",
+  description: "Студия внедрения 1С. 32 направления, 263 модуля, одна команда под ключ.",
   email: "info@1integra.ru",
   areaServed: {
     "@type": "Country",
@@ -114,6 +117,11 @@ const organizationSchema = {
     contactType: "sales",
     availableLanguage: "Russian",
   },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Санкт-Петербург",
+    addressCountry: "RU",
+  },
   knowsAbout: [
     "Внедрение 1С",
     "1С ERP",
@@ -124,6 +132,7 @@ const organizationSchema = {
     "1С Производство",
     "Миграция с SAP на 1С",
   ],
+  priceRange: "от 150 000 ₽",
 };
 
 const websiteSchema = {
@@ -156,6 +165,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <MobileCta />
+        <YandexMetrika />
       </body>
     </html>
   );

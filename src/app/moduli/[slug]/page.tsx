@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${mod.title} — внедрение и настройка`,
     description: mod.desc,
+    alternates: { canonical: `/moduli/${slug}` },
   };
 }
 

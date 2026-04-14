@@ -2,7 +2,9 @@ import { W } from "@/components/constants";
 
 export const metadata = {
   title: "Политика конфиденциальности",
-  robots: { index: false, follow: false },
+  description: "Политика обработки персональных данных 1ИНТЕГРА. Соответствие 152-ФЗ.",
+  alternates: { canonical: "/politika" },
+  robots: { index: false, follow: true },
 };
 
 export default function PolitikaPage() {

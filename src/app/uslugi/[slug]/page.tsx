@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${direction.title} — внедрение 1С под ключ`,
     description: direction.fullDesc,
+    alternates: { canonical: `/uslugi/${slug}` },
   };
 }
 

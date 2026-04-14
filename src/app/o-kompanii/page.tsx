@@ -1,6 +1,12 @@
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
 
+export const metadata = {
+  title: "О компании 1ИНТЕГРА — сертифицированный партнёр 1С",
+  description: "Студия внедрения 1С: сертифицированный партнёр 1С:Франчайзи. Параллельное внедрение модулей — быстрее в 3 раза. Фиксированная цена, постоплата, гарантия сроков.",
+  alternates: { canonical: "/o-kompanii" },
+};
+
 export default function AboutPage() {
   return (
     <>
