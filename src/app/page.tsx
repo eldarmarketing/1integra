@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
-import { SERVICES } from "@/data/services";
+import { DIRECTIONS } from "@/data/directions";
+import { MODULES } from "@/data/modules";
 
 export default function Home() {
   return (
@@ -94,7 +95,7 @@ export default function Home() {
             </div>
 
             {/* Partner badges */}
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2 md:gap-3 w-full md:w-auto">
               {[
                 { label: "1С:Франчайзи", accent: true },
                 { label: "1С:Профессионал", accent: false },
@@ -102,13 +103,13 @@ export default function Home() {
               ].map((b) => (
                 <div
                   key={b.label}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold ${
+                  className={`flex items-center gap-1.5 px-3 py-2 md:px-4 md:py-2.5 rounded-full text-xs md:text-sm font-semibold ${
                     b.accent
                       ? "bg-primary text-on-primary"
                       : "bg-surface-container-high text-on-surface"
                   }`}
                 >
-                  <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                  <svg className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                   </svg>
                   {b.label}
@@ -133,31 +134,39 @@ export default function Home() {
           </div>
 
           <div data-r="reveal d2" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 lg:mt-16">
-            {SERVICES.slice(0, 6).map((s) => (
-              <Link
-                key={s.slug}
-                href={`/uslugi/${s.slug}`}
-                className="group rounded-2xl border border-outline-variant bg-surface-container-lowest
-                  p-6 lg:p-8 hover:bg-surface-container-low transition-colors duration-200 block"
-              >
-                <h3 className="text-xl font-semibold text-on-surface group-hover:text-primary transition-colors">
-                  {s.title}
-                </h3>
-                <p className="text-base text-on-surface-variant mt-3 leading-relaxed">
-                  {s.shortDesc}
-                </p>
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {s.modules.slice(0, 3).map((m) => (
-                    <span
-                      key={m}
-                      className="text-xs font-medium px-3 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant"
-                    >
-                      {m}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            ))}
+            {DIRECTIONS.slice(0, 6).map((s) => {
+              const dirModules = MODULES.filter((m) => m.directions.includes(s.slug));
+              return (
+                <Link
+                  key={s.slug}
+                  href={`/uslugi/${s.slug}`}
+                  className="group rounded-2xl border border-outline-variant bg-surface-container-lowest
+                    p-6 lg:p-8 hover:bg-surface-container-low transition-colors duration-200 block"
+                >
+                  <h3 className="text-xl font-semibold text-on-surface group-hover:text-primary transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="text-base text-on-surface-variant mt-3 leading-relaxed">
+                    {s.shortDesc}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-5">
+                    {dirModules.slice(0, 3).map((m) => (
+                      <span
+                        key={m.slug}
+                        className="text-xs font-medium px-3 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant"
+                      >
+                        {m.title}
+                      </span>
+                    ))}
+                    {dirModules.length > 3 && (
+                      <span className="text-xs font-medium px-3 py-1.5 rounded-md bg-surface-container-high text-on-surface-variant/50">
+                        +{dirModules.length - 3}
+                      </span>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
 
           <div className="text-center mt-10">
@@ -165,7 +174,7 @@ export default function Home() {
               href="/uslugi"
               className="text-sm font-semibold text-primary hover:opacity-80 transition-opacity"
             >
-              Все 9 направлений →
+              Все 32 направления →
             </Link>
           </div>
         </div>

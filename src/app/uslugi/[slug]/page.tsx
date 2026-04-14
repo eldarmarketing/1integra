@@ -2,44 +2,48 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaSection } from "@/components/cta-section";
 import { W } from "@/components/constants";
-import { SERVICES, getServiceBySlug } from "@/data/services";
+import { DIRECTIONS, getDirectionBySlug } from "@/data/directions";
+import { getModulesByDirection } from "@/data/modules";
 import { JsonLd, FaqJsonLd } from "@/components/json-ld";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { GENERAL_FAQ, SERVICE_FAQ } from "@/data/faq";
 
 export function generateStaticParams() {
-  return SERVICES.map((s) => ({ slug: s.slug }));
+  return DIRECTIONS.map((d) => ({ slug: d.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = getServiceBySlug(params.slug);
-  if (!service) return {};
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const direction = getDirectionBySlug(slug);
+  if (!direction) return {};
   return {
-    title: `${service.title} — внедрение 1С под ключ`,
-    description: service.fullDesc,
+    title: `${direction.title} — внедрение 1С под ключ`,
+    description: direction.fullDesc,
   };
 }
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = getServiceBySlug(params.slug);
+export default async function DirectionPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const direction = getDirectionBySlug(slug);
 
-  if (!service) notFound();
+  if (!direction) notFound();
 
-  const otherServices = SERVICES.filter((s) => s.slug !== params.slug).slice(0, 3);
-  const faqItems = SERVICE_FAQ[params.slug] ?? GENERAL_FAQ;
+  const modules = getModulesByDirection(slug);
+  const otherDirections = DIRECTIONS.filter((d) => d.slug !== slug).slice(0, 3);
+  const faqItems = SERVICE_FAQ[slug] ?? GENERAL_FAQ;
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: service.title,
-    description: service.fullDesc,
+    name: direction.title,
+    description: direction.fullDesc,
     provider: {
       "@type": "Organization",
       name: "1ИНТЕГРА",
       url: "https://1integra.ru",
     },
     areaServed: { "@type": "Country", name: "Россия" },
-    url: `https://1integra.ru/uslugi/${params.slug}`,
+    url: `https://1integra.ru/uslugi/${slug}`,
   };
 
   const breadcrumbSchema = {
@@ -48,7 +52,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Главная", item: "https://1integra.ru" },
       { "@type": "ListItem", position: 2, name: "Услуги", item: "https://1integra.ru/uslugi" },
-      { "@type": "ListItem", position: 3, name: service.title, item: `https://1integra.ru/uslugi/${params.slug}` },
+      { "@type": "ListItem", position: 3, name: direction.title, item: `https://1integra.ru/uslugi/${slug}` },
     ],
   };
 
@@ -68,41 +72,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             <span>/</span>
             <Link href="/uslugi" className="hover:text-on-surface transition-colors">Услуги</Link>
             <span>/</span>
-            <span className="text-on-surface truncate">{service.title}</span>
+            <span className="text-on-surface truncate">{direction.title}</span>
           </nav>
 
-          <div data-r="reveal d1" className="grid lg:grid-cols-5 gap-6 lg:gap-10 items-start">
-            <div className="lg:col-span-3">
-              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-on-surface mb-4">
-                {service.title}
-              </h1>
-              <p className="text-lg text-on-surface-variant leading-relaxed">
-                {service.fullDesc}
-              </p>
-            </div>
-
-            <div className="lg:col-span-2 rounded-2xl bg-surface-container border border-outline-variant p-6 lg:p-8">
-              <div className="text-xs font-semibold text-on-surface-variant uppercase tracking-wider mb-6">
-                Продукты
-              </div>
-              <div className="space-y-4">
-                {service.products.map((p) => (
-                  <div key={p} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                    <span className="text-sm text-on-surface">{p}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-7 pt-7 border-t border-outline-variant hidden md:block">
-                <Link
-                  href="/kontakty"
-                  className="flex items-center justify-center h-12 px-6 rounded-full bg-primary text-on-primary text-sm font-semibold
-                    hover:bg-primary/90 transition-colors"
-                >
-                  Обсудить внедрение
-                </Link>
-              </div>
-            </div>
+          <div data-r="reveal d1" className="max-w-3xl">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-on-surface mb-4">
+              {direction.title}
+            </h1>
+            <p className="text-lg text-on-surface-variant leading-relaxed">
+              {direction.fullDesc}
+            </p>
           </div>
         </div>
       </section>
@@ -114,7 +93,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             Что входит
           </h2>
           <div data-r="reveal d1" className="grid md:grid-cols-2 gap-6 mt-12 lg:mt-16">
-            {service.features.map((f, i) => (
+            {direction.features.map((f, i) => (
               <div
                 key={f.title}
                 className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 lg:p-8
@@ -133,25 +112,37 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Modules */}
-      <section className="py-16 lg:py-24">
-        <div className={W}>
-          <div data-r="reveal" className="rounded-2xl bg-surface-container border border-outline-variant p-6 lg:p-8">
-            <h2 className="text-2xl font-bold text-on-surface mb-6">Модули и компоненты</h2>
-            <div className="flex flex-wrap gap-2 md:gap-3">
-              {service.modules.map((m) => (
-                <span key={m} className="px-3.5 py-2 rounded-full bg-surface-container-high text-on-surface text-xs font-semibold">
-                  {m}
+      {modules.length > 0 && (
+        <section className="py-16 lg:py-24">
+          <div className={W}>
+            <div data-r="reveal" className="rounded-2xl bg-surface-container border border-outline-variant p-6 lg:p-8">
+              <div className="flex items-center justify-between gap-4 mb-6">
+                <h2 className="text-2xl font-bold text-on-surface">
+                  Модули и компоненты
+                </h2>
+                <span className="text-sm text-on-surface-variant shrink-0">
+                  {modules.length} модулей
                 </span>
-              ))}
-              {service.products.map((p) => (
-                <span key={p} className="px-3.5 py-2 rounded-full bg-primary-container text-on-primary-container text-xs font-semibold">
-                  {p}
-                </span>
-              ))}
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                {modules.map((m) => (
+                  <Link
+                    key={m.slug}
+                    href={`/moduli/${m.slug}`}
+                    className="group flex items-center gap-3 px-3.5 py-2.5 rounded-lg
+                      hover:bg-surface-container-high transition-colors"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                    <span className="text-sm text-on-surface group-hover:text-primary transition-colors">
+                      {m.title}
+                    </span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Cases */}
       <section className="py-16 lg:py-24">
@@ -160,7 +151,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             Примеры внедрений
           </h2>
           <div data-r="reveal d1" className="grid md:grid-cols-3 gap-6 mt-12 lg:mt-16">
-            {service.cases.map((c, i) => (
+            {direction.cases.map((c, i) => (
               <div
                 key={i}
                 className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 lg:p-8
@@ -190,7 +181,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
       </section>
       <FaqJsonLd items={faqItems} />
 
-      {/* Other services */}
+      {/* Other directions */}
       <section className="py-16 lg:py-24">
         <div className={W}>
           <div className="flex items-end justify-between gap-6 mb-12 lg:mb-16">
@@ -206,15 +197,15 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </Link>
           </div>
           <div data-r="reveal d1" className="grid md:grid-cols-3 gap-6">
-            {otherServices.map((s) => (
+            {otherDirections.map((d) => (
               <Link
-                key={s.slug}
-                href={`/uslugi/${s.slug}`}
+                key={d.slug}
+                href={`/uslugi/${d.slug}`}
                 className="rounded-2xl border border-outline-variant bg-surface-container-lowest p-6 lg:p-8
                   hover:bg-surface-container-low transition-colors block"
               >
-                <h3 className="text-lg font-semibold text-on-surface mb-2">{s.title}</h3>
-                <p className="text-sm text-on-surface-variant">{s.shortDesc}</p>
+                <h3 className="text-lg font-semibold text-on-surface mb-2">{d.title}</h3>
+                <p className="text-sm text-on-surface-variant">{d.shortDesc}</p>
               </Link>
             ))}
           </div>
