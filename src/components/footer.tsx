@@ -35,10 +35,10 @@ export function Footer() {
 
           <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-5">
             <a
-              href="tel:+79651784434"
+              href="tel:+79679688868"
               className="text-sm text-on-surface-variant hover:text-on-surface transition-colors"
             >
-              +7 (965) 178-44-34
+              +7 (967) 968-88-68
             </a>
             <a
               href="mailto:info@1integra.ru"

@@ -3,7 +3,7 @@ import { W } from "@/components/constants";
 
 export const metadata = {
   title: "Контакты 1ИНТЕГРА — заявка на внедрение 1С",
-  description: "Оставьте заявку на внедрение 1С. Ответим в течение часа. Телефон: +7 965 178-44-34. Email: info@1integra.ru. Санкт-Петербург.",
+  description: "Оставьте заявку на внедрение 1С. Ответим в течение часа. Телефон: +7 967 968-88-68. Email: info@1integra.ru. Санкт-Петербург.",
   alternates: { canonical: "/kontakty" },
 };
 
@@ -44,7 +44,7 @@ export default function KontaktyPage() {
             </a>
 
             {/* Phone */}
-            <a href="tel:+79651784434"
+            <a href="tel:+79679688868"
               className="group rounded-xl border border-outline-variant bg-surface-container-lowest p-4 md:p-6 hover:bg-surface-container-low active:scale-[0.98] transition-colors duration-300 ease-[cubic-bezier(0.2,0,0,1)]">
               <div className="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center mb-4">
                 <svg className="w-5 h-5 text-on-primary-container" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -54,7 +54,7 @@ export default function KontaktyPage() {
               <div className="md3-title-medium text-on-surface mb-2">Телефон</div>
               <p className="md3-body-medium text-on-surface-variant mb-6">Пн–Пт, 09:00–18:00 по&nbsp;Москве</p>
               <span className="md3-label-large text-primary">
-                +7 (965) 178-44-34
+                +7 (967) 968-88-68
               </span>
             </a>
 

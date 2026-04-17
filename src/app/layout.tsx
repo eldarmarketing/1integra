@@ -109,10 +109,10 @@ const organizationSchema = {
     "@type": "Country",
     name: "Россия",
   },
-  telephone: "+7 965 178-44-34",
+  telephone: "+7 967 968-88-68",
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+7 965 178-44-34",
+    telephone: "+7 967 968-88-68",
     email: "info@1integra.ru",
     contactType: "sales",
     availableLanguage: "Russian",

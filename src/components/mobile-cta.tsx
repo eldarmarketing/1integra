@@ -5,7 +5,7 @@ export function MobileCta() {
     <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/30 px-4 py-3 safe-area-pb">
       <div className="flex items-center gap-2">
         <a
-          href="tel:+79651784434"
+          href="tel:+79679688868"
           className="flex items-center justify-center w-12 h-12 rounded-full bg-surface-container text-on-surface-variant shrink-0 active:bg-surface-container-high"
           aria-label="Позвонить"
         >
@@ -14,7 +14,7 @@ export function MobileCta() {
           </svg>
         </a>
         <a
-          href="https://wa.me/79651784434"
+          href="https://wa.me/79679688868"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-12 h-12 rounded-full bg-surface-container text-success shrink-0 active:bg-surface-container-high"
